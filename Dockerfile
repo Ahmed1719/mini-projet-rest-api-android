@@ -1,4 +1,7 @@
-FROM eclipse-temurin:17-jdk-jammy
+# ═══════════════════════════════════════════════════
+# ÉTAPE 1 : Construction de l'APK (image temporaire)
+# ═══════════════════════════════════════════════════
+FROM eclipse-temurin:17-jdk-jammy AS builder
 
 RUN apt-get update && apt-get install -y \
     wget \
@@ -23,4 +26,14 @@ COPY . .
 RUN chmod +x ./gradlew
 RUN ./gradlew assembleDebug --no-daemon
 
-CMD ["echo", "APK construit dans app/build/outputs/apk/debug/"]
+# ═══════════════════════════════════════════════════
+# ÉTAPE 2 : Image finale légère (seulement l'APK)
+# ═══════════════════════════════════════════════════
+FROM alpine:latest
+
+WORKDIR /output
+
+# Copier uniquement l'APK depuis l'étape 1
+COPY --from=builder /app/app/build/outputs/apk/debug/app-debug.apk .
+
+CMD ["echo", "APK disponible dans /output/app-debug.apk"]
