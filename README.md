@@ -1,8 +1,8 @@
 # 📱 Mini-Projet REST API — JSONPlaceholder — Compose + Retrofit
 
 > **Matière** : Atelier développement mobile natif – Android Jetpack Compose  
-> **Auteur** : NOM Prénom  
-> **Date** : Janvier 2025
+> **Auteur** : Jamel Benammar 
+> **Date** : Mars 2026
 
 ---
 
