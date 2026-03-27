@@ -1,8 +1,13 @@
+# Git
 .git
-.gradle
+
+# Android Studio
 .idea
-build
-app/build
-local.properties
 *.iml
-*.apk
+local.properties
+
+# Gradle cache
+.gradle
+
+# Divers
+*.hprof
