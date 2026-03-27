@@ -1,6 +1,22 @@
-.git
-.idea
-.gradle
-local.properties
+# Android Studio
+.idea/
 *.iml
+local.properties
+
+# Gradle
+.gradle/
+build/
+app/build/
+
+# APK / AAB
+*.apk
+*.aab
+
+# Divers
 *.hprof
+.DS_Store
+/captures
+
+# Docker
+Dockerfile
+.dockerignore
